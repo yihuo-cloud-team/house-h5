@@ -1,0 +1,38 @@
+@import "@/styles/variable.scss";
+
+#login {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .text {
+        font-size: 20px;
+        color: #101010;
+        text-align: center;
+        margin-top: 150px;
+    }
+
+    .people {
+        display: flex;
+        flex-direction: column;
+
+        .img {
+            width: 80px;
+            height: 80px;
+            margin-left: 165px;
+            margin-top: 55px;
+            border-radius: 5px;
+            display: block;
+            background-color: #dddddd;
+        }
+
+        .name {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    }
+}
+
+
+#login /deep/ {}

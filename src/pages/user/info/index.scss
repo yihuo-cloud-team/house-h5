@@ -1,0 +1,51 @@
+@import "@/styles/variable.scss";
+
+#user {
+  background-color: #F6F6F6;
+}
+
+.user-info {
+  background-color: #4289DB;
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  .info-image {
+    text-align: center;
+    margin-bottom: 22px;
+
+    .img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  }
+
+  .user-name {
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+  }
+}
+.user-member{
+    margin: 10px;
+    text-align: center;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.security {
+  margin-top: 15px;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 15px;
+  background-color: #fff;
+  padding: 15px 0;
+}
+
+
+
+#user /deep/ {}

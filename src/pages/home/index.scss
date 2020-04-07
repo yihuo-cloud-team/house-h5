@@ -1,0 +1,18 @@
+@import "@/styles/variable.scss";
+
+#home {
+//   padding: $page-padding;
+  box-sizing: border-box;
+  background-color: #F6F6F6;
+
+  .move {
+    margin-top: 20rpx;
+  }
+
+  .list {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+#home /deep/ {}

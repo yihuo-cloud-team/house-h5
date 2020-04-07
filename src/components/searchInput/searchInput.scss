@@ -1,0 +1,38 @@
+@import "@/styles/variable.scss";
+
+#searchInput {
+  padding: 35px 20px 15px 20px;
+
+  .search-box {
+    display: flex;
+    background-color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 5px;
+
+    .choice {
+      border-radius: 10px 0 0 10px;
+      background-color: #f6f6f6;
+      padding-left: 15px;
+    }
+
+    .search-input {
+      flex: 1;
+      height: auto;
+      font-size: 13px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      margin-right: 20rpx;
+
+      .search-icon {
+        font-size: 28rpx;
+        display: block;
+
+      }
+    }
+  }
+}
+
+#searchInput /deep/ {}
