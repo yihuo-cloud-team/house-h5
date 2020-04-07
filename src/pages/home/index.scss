@@ -1,17 +1,188 @@
 @import "@/styles/variable.scss";
 
 #home {
-//   padding: $page-padding;
+  //   padding: $page-padding;
   box-sizing: border-box;
   background-color: #F6F6F6;
 
   .move {
-    margin-top: 20rpx;
+    margin-top: 10px;
+
+    .title {
+      display: flex;
+      padding: 15px;
+      justify-content: space-between;
+
+      .title-big {
+        font-size: 18px;
+        color: #333333;
+        display: flex;
+        align-items: center;
+
+        .label {
+          width: 3px;
+          height: 25px;
+          margin-right: 5px;
+          background: rgba(255, 173, 61, 1);
+        }
+      }
+
+      .title-more {
+        font-size: 11px;
+        color: #777777;
+        padding: 10rpx;
+      }
+    }
+
+    .card-box-all {
+      overflow-x: auto;
+
+      .card-box {
+        display: flex;
+        padding-left: 20px;
+        padding-bottom: 10px;
+
+        .box {
+          padding-right: 20px;
+
+          .card {
+            // border: 1px solid #DDDDDD;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+
+            .move-image {
+              width: 226px;
+              height: 90px;
+              border-radius: 5px 5px 0 0;
+              overflow: hidden;
+            }
+
+            .card-body {
+              padding: 5px 10px;
+
+              .card-title-info {
+                display: flex;
+                font-size: 10px;
+                color: #666666;
+                justify-content: space-between;
+                margin-bottom: 3px;
+              }
+
+              .title-name {
+                width: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 14px;
+                margin-bottom: 3px;
+                color: #666666;
+              }
+
+              .card-price {
+
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                padding-right: 5px;
+
+                .price {
+                  font-size: 14px;
+                  color: #FF6666;
+                }
+
+                .area {
+                  font-size: 10px;
+                  color: #666666;
+                }
+              }
+            }
+
+
+          }
+        }
+      }
+    }
   }
 
   .list {
     overflow-y: auto;
     overflow-x: hidden;
+
+    .list-title {
+      display: flex;
+      padding: 9px 15px;
+      margin-bottom: 10px;
+      justify-content: space-between;
+
+
+      .list-title-big {
+        font-size: 18px;
+        color: #333333;
+        display: flex;
+        align-items: center;
+
+        .label {
+          width: 3px;
+          height: 25px;
+          margin-right: 5px;
+          background: rgba(255, 173, 61, 1);
+        }
+
+      }
+
+      .list-title-more {
+        justify-content: flex-end;
+        font-size: 12px;
+        color: #777777;
+        padding: 4px;
+      }
+    }
+
+    .article {
+      background-color: #fff;
+      display: flex;
+      padding: 15px;
+      border-bottom: solid 1px #f6f6f6;
+
+      .img {
+        min-width: 113px;
+        width: 118px;
+        height: 87px;
+        background-color: #dddddd;
+      }
+
+      .article-info-panel {
+        margin-left: 2px;
+        flex: 1;
+        margin-right: 30px;
+        display: flex;
+        flex-direction: column;
+
+        .article-box {
+          flex: 1;
+
+          .article-title {
+            font-size: 16px;
+            line-height: 1.2;
+            margin-bottom: 5px;
+          }
+
+          .article-sub_title {
+            font-size: 12px;
+            color: rgba(119, 119, 119, 1);
+          }
+        }
+
+        .article-info {
+
+          font-size: 11px;
+          color: rgba(119, 119, 119, 1);
+        }
+      }
+    }
   }
 }
 

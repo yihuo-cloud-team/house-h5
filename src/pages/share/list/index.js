@@ -1,54 +1,29 @@
-import assist from "@/plugins/lib/assist";
 export default {
-    name: 'home',
+    name: 'list',
     data() {
         return {
-            search: '',
-            form: {
-                title: '',
-                page_size: 5,
+            list: [
+            ],
+            query: {
+                a: '',
+                page_size: 10,
                 page: 1,
-                is_up: 1,
+                state: 1
             },
-            sharelist: [],
-            list: []
+            loading: false,
+            finished: false,
+            isLoading: false,
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
-            this.update();
-            this.shareupdate();
+            // this.update();
         },
         // 用于更新一些数据
         async update() {
             try {
-                const res = await this.$http.post('/paper/list', this.form);
-                const Assist = new assist()
-                if (res.code > 0) {
-                    res.data = res.data.map(el => {
-                        el.first_img = this.$getUrl(el.first_img)
-                        el.newdata = Assist.getDateDiff(el.add_time)
-                        return el
-                    })
-                    this.list = [...this.list, ...res.data]
-                    this['form.page'] = ++this.form.page
-                    this.botomLoading = true
-                } else {
-                    this.botomLoading = false
-                }
-            } catch (error) {
-                console.warn(error);
-            }
-        },
-        async shareupdate() {
-            try {
-                const res = await this.$http.post('/house/movelist', {
-                    // a: this.data.$app.adcodearr[2],
-                    page_size: 3,
-                    page: 1,
-                    state: 1
-                });
+                const res = await this.$http.post('/house/movelist', this.query);
                 if (res.code > 0) {
                     res.data = res.data.map(el => {
                         if (el.price.length > 4) {
@@ -56,39 +31,34 @@ export default {
                         } else {
                             el.price = el.price + '元/月'
                         }
-
                         if (!el.img_list) return el
                         if (el.img_list.length > 0) {
                             el.img_list = el.img_list.map(img => this.$getUrl(img))
                         }
                         return el
                     })
-                    this.sharelist = res.data
+                    this.list = [...this.list, ...res.data]
+                    this.query.page = ++this.query.page
+                    this.botomLoading = true
+                    this.loading = false;
+                    if (res.total < this.query.page_size) {
+                        this.finished = true;
+                    }
+                } else {
+                    this.finished = true;
                 }
             } catch (error) {
-
+                console.warn(error);
             }
-
         },
-
-        Jumplist(search) {
-            this.$router.push({
-                path: '/search/list',
-                query: {
-                    title: search
-                }
-            })
-        },
-        go() {
-            this.$router.push('/share/list')
-        },
-        details(e) {
-            if (e.type == 1) {
-                this.$router.push(`/article/info?id=${e.id}`)
-            }
-            if (e.type == 2) {
-                window.location.href = e.content
-            }
+        async updateInit() {
+            // this.query.a = this.data.$app.adcodearr[2],
+            this.finished = false;
+            this.query.page = 1
+            this.list = []
+            await this.update();
+            this.isLoading = false
+            this.$toast('刷新成功');
         }
     },
     // 计算属性

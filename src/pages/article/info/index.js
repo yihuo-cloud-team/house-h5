@@ -1,15 +1,8 @@
 export default {
-    name: 'searchInput',
-    model: {
-        prop: 'checked',
-        event: 'change'
-    },
-    props: {
-        checked: Boolean
-    },
+    name: 'info',
+    layout: "sub",
     data() {
-        return {
-        };
+        return {};
     },
     methods: {
         // 用于初始化一些数据
@@ -18,11 +11,17 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            try {
+                const res = await this.$http.post('/paper/info', {
+                    id: this.$route.query.id
+                });
+                if (res.code >= 0) {
+                    this.info = res.data
+                }
+            } catch (error) {
+
+            }
         },
-        btnTap($event) {
-            this.$emit('change', $event.target.value)
-        }
     },
     // 计算属性
     computed: {},

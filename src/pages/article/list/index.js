@@ -1,24 +1,23 @@
 import assist from "@/plugins/lib/assist";
 export default {
-    name: 'home',
+    name: 'list',
+    layout: "sub",
     data() {
         return {
-            search: '',
+            loading: false,
+            finished: false,
+            isLoading: false,
+            list: [],
             form: {
-                title: '',
-                page_size: 5,
                 page: 1,
-                is_up: 1,
-            },
-            sharelist: [],
-            list: []
+                page_size: 10,
+            }
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
-            this.update();
-            this.shareupdate();
+            // this.update();
         },
         // 用于更新一些数据
         async update() {
@@ -32,55 +31,29 @@ export default {
                         return el
                     })
                     this.list = [...this.list, ...res.data]
-                    this['form.page'] = ++this.form.page
-                    this.botomLoading = true
+                    this.form.page = ++this.form.page
+                    this.form.page_size = 5
+                    this.loading = false;
+                    if (res.total < 10) {
+                        console.warn(1);
+                        this.finished = true;
+                    }
                 } else {
-                    this.botomLoading = false
+                    this.finished = true;
+                    this.$toast('没有了')
                 }
             } catch (error) {
                 console.warn(error);
             }
         },
-        async shareupdate() {
-            try {
-                const res = await this.$http.post('/house/movelist', {
-                    // a: this.data.$app.adcodearr[2],
-                    page_size: 3,
-                    page: 1,
-                    state: 1
-                });
-                if (res.code > 0) {
-                    res.data = res.data.map(el => {
-                        if (el.price.length > 4) {
-                            el.price = Math.round((parseInt(el.price) / 10000) * 100) / 100 + '万元';
-                        } else {
-                            el.price = el.price + '元/月'
-                        }
-
-                        if (!el.img_list) return el
-                        if (el.img_list.length > 0) {
-                            el.img_list = el.img_list.map(img => this.$getUrl(img))
-                        }
-                        return el
-                    })
-                    this.sharelist = res.data
-                }
-            } catch (error) {
-
-            }
-
-        },
-
-        Jumplist(search) {
-            this.$router.push({
-                path: '/search/list',
-                query: {
-                    title: search
-                }
-            })
-        },
-        go() {
-            this.$router.push('/share/list')
+        async updateInit() {
+            this.list = []
+            this.form.page = 1
+            this.form.page_size = 10
+            this.finished = false;
+            await this.update()
+            this.isLoading = false
+            this.$toast('刷新成功');
         },
         details(e) {
             if (e.type == 1) {

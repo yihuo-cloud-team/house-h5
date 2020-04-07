@@ -19,8 +19,6 @@ class RegComp {
             const componentConfig = requireComponent(fileName)
             const componentName = componentConfig.default.name
             // // 全局注册组件
-            console.warn(componentName);
-            
 
             Vue.component(
                 componentName,

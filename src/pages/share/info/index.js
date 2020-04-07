@@ -1,15 +1,8 @@
 export default {
-    name: 'searchInput',
-    model: {
-        prop: 'checked',
-        event: 'change'
-    },
-    props: {
-        checked: Boolean
-    },
+    name: 'info',
+    layout: "sub",
     data() {
-        return {
-        };
+        return {};
     },
     methods: {
         // 用于初始化一些数据
@@ -20,9 +13,6 @@ export default {
         async update() {
             // const res = await this.$http.post('', {});
         },
-        btnTap($event) {
-            this.$emit('change', $event.target.value)
-        }
     },
     // 计算属性
     computed: {},

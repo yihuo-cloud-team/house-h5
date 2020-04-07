@@ -1,0 +1,27 @@
+@import "@/styles/variable.scss";
+
+#info {
+  padding: 30rpx;
+
+  .info-head {
+    margin-bottom: 20rpx;
+
+    .title {
+      font-size: 50rpx;
+      font-weight: bold;
+      margin-bottom: 15rpx;
+    }
+
+    .head-body {
+      display: flex;
+      font-size: 28rpx;
+      color: rgba(69, 90, 100, 0.6);
+
+      .ftitle {
+        margin-right: 20rpx;
+      }
+    }
+  }
+}
+
+#info /deep/ {}

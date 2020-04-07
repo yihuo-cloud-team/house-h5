@@ -1,0 +1,66 @@
+@import "@/styles/variable.scss";
+
+#list {
+  padding: 20px 10px;
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .card {
+      width: calc(50% - 5px);
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      .move-image {
+        width: 100%;
+        height: 80px;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .card-body {
+        padding: 5px 10px;
+
+
+        .title-name {
+          width: 130px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: rgba(0, 0, 0, 1);
+        }
+
+        .roominfo {
+          color: rgba(102, 102, 102, 1);
+          font-size: 10px;
+          margin-bottom: 3px;
+        }
+
+        .info {
+          font-size: 10px;
+          color: rgba(102, 102, 102, 1);
+          margin-bottom: 10rpx;
+        }
+
+        .price {
+          font-size: 14px;
+          color: rgba(255, 173, 61, 1);
+        }
+
+      }
+
+
+    }
+
+  }
+
+}
+
+#list /deep/ {}
