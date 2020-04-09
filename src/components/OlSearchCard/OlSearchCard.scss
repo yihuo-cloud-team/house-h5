@@ -1,0 +1,61 @@
+@import "@/styles/variable.scss";
+
+.ol-search-card {
+  .list {
+
+    padding: 5px 5px 15px;
+
+
+    .img-box {
+      margin-bottom: 10px;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      .house-img {
+        width: 100%;
+        display: block;
+        padding-bottom: 50%;
+        background-size: cover;
+        background-position: center center;
+    
+      
+      }
+      .index{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: white;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        padding: 0 10px;
+        border-radius: 50px;
+        font-size: 12px;
+    }
+    }
+
+    .title {
+
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: bold;
+      word-wrap: break-word;
+      margin-bottom: 5px;
+    }
+
+    .config {
+      color: #ACAAAD;
+      line-height: 18px;
+      font-size: 12px;
+    }
+
+    .label {}
+
+    .price {
+      padding: 5px 0;
+      color: #E37D6B;
+    }
+  }
+}
+
+.ol-search-card /deep/ {}

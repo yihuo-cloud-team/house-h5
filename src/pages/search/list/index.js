@@ -1,6 +1,7 @@
+import AreaList from '../../../plugins/lib/area'
 export default {
     name: 'list',
-    layout: "sub",
+    layout:"sub",
     data() {
         return {
             form: {
@@ -11,21 +12,56 @@ export default {
                 a: '', //区
             },
             list: [],
+            finished:false,
+            loading:false,
+            district: '暂无定位',
+            show:false,
+            areaList:[],
         };
     },
     methods: {
         // 用于初始化一些数据
         init() {
             this.update();
+            this.areaList = AreaList;
         },
         // 用于更新一些数据
         async update() {
-            // const res = await this.$http.post('', {});
+            if(this.finished) return;
+            this.loading = true;
+            const res = await this.$http.post('house/list', this.form);
+            if (res.code > 0) {
+                this.list = [...this.list, ...res.data];
+                this.form.page++;
+              } else {
+                this.finished = true;
+              }
+              this.loading = false;
         },
+        getAddress() {
+            let mapObj = new AMap.Map('iCenter');
+            mapObj.plugin('AMap.Geolocation', () => {
+              let geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true, //是否使用高精度定位，默认:true
+              });
+              geolocation.getCurrentPosition((status, result) => {
+                if (status == 'complete') {
+                  this.Areaval = result.addressComponent.adcode
+                  // this.query.a = result.addressComponent.adcode
+                  this.district = result.addressComponent.district
+               
+                  this.update();
+                } else {
+                  console.warn(status, '定位失败');
+                  this.update();
+                }
+              });
+            })
+          },
     },
     // 计算属性
     computed: {
-        isApp
+     
     },
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},

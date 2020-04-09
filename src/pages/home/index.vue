@@ -1,7 +1,10 @@
 <template>
   <div id="home">
     <div class="search">
-      <search-input v-model="search" @change="Jumplist"></search-input>
+     <div class="search-box" @click="$router.push('/search/list')">
+      <van-icon name="search" size="18"></van-icon>
+      {{info?info:""}}
+    </div>
     </div>
     <div class="move">
       <div class="title">

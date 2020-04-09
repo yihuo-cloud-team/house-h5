@@ -2,37 +2,27 @@
   <div id="list">
     <div class="search">
       <div class="search-body">
-        <van-icon name="search" class="icon" color="#707070" size="26rpx" />
+        <div class="icon" @click="show=true">
+          <van-icon name="search" class="icon" color="#707070" size="26rpx" />
+          {{district}} 
+        </div>
         <input class="search-input" v-model="form.title" placeholder="请输入小区关键字" />
       </div>
     </div>
-    <div class="house-list">
-      <div
-        class="item"
-        v-for="(item,index) in list"
-        :key="index"
-        bindtap="o-router"
-        data-url="/pages/share/info/info?id={{item.id}}"
-      >
-        <div class="item-left">
-          <div class="item-title">{{item.title}}</div>
-          <div class="item-date">{{item.newdata}}</div>
-        </div>
-        <div class="item-center">
-          <div class="fyinfo">
-            <div class="item-room">{{item.bedroom+'室'+item.room+'厅'+item.wc+'卫'}}</div>
-            <div class="item-fill-to">
-              <div class="item-fill">{{item.fill}}</div>
-              <div class="item-to">{{item.towards}}</div>
-            </div>
-          </div>
-        </div>
-        <div class="item-right">
-          <div class="item-price">{{item.price}}</div>
-          <div class="item-area">{{item.area}} ㎡</div>
-        </div>
-      </div>
-    </div>
+    <div></div>
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="httpStoreList()"
+      :immediate-check="false"
+      class="list"
+    >
+      <ol-search-card :info="item" v-for="(item,index) in list" :key="index"></ol-search-card>
+    </van-list>
+        <van-popup v-model="show" position="bottom">
+      <van-area :area-list="areaList" @confirm="confirm" @cancel="cancel" :value="Areaval" />
+    </van-popup>
   </div>
 </template>
 <script src="./index.js"></script>
