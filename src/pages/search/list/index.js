@@ -1,7 +1,17 @@
 export default {
     name: 'list',
+    layout: "sub",
     data() {
-        return {};
+        return {
+            form: {
+                title: '', //关键字
+                page_size: 10,
+                page: 1,
+                is_up: 1,
+                a: '', //区
+            },
+            list: [],
+        };
     },
     methods: {
         // 用于初始化一些数据
@@ -14,7 +24,9 @@ export default {
         },
     },
     // 计算属性
-    computed: {},
+    computed: {
+        isApp
+    },
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
     // 在实例创建完成后被立即调用
