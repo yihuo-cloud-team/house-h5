@@ -9,7 +9,6 @@
         <input @keydown.enter="search" class="search-input"  v-model="form.title" placeholder="请输入小区关键字" />
       </div>
     </div>
-    <div></div>
     <van-list
       v-model="loading"
       :finished="finished"

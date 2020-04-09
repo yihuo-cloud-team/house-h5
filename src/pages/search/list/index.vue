@@ -11,6 +11,7 @@
     </div>
     <div></div>
     <van-list
+     
       v-model="loading"
       :finished="finished"
       finished-text="没有更多了"
@@ -19,7 +20,7 @@
       class="list"
     >
       <ol-search-card :info="item" v-for="(item,index) in list" :key="index"></ol-search-card>
-    </van-list>
+    </van-list >
         <van-popup v-model="show" position="bottom">
       <van-area :area-list="areaList" @confirm="confirm" @cancel="cancel" :value="Areaval" />
     </van-popup>
