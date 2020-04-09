@@ -6,7 +6,7 @@
           <van-icon name="search" class="icon" color="#707070" size="26rpx" />
           {{district}} 
         </div>
-        <input @keydown.enter="search" class="search-input" v-model="form.title" placeholder="请输入小区关键字" />
+        <input @keydown.enter="search" class="search-input" v-model="form.title" placeholder="请输入酒店名称" />
       </div>
     </div>
     <div></div>

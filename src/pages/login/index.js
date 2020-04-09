@@ -23,35 +23,34 @@ export default {
          * 验证是否有code，没有则跳转
          */
         vCode() {
-
-            // if (typeof this.$route.query['code'] == 'undefined') {
-            //     // 跳转
-
-            //     const appid = 'wx754474ce7640bd0c';
-            //     const redirect_uri = encodeURIComponent(window.location.href);
-            //     window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
-
-            // } else {
-            //     // 登陆
-            //     const code = this.$route.query.code;
-            //     this.login(code);
-            // }
-            this.$router.push('/')
-
+            if (typeof this.$route.query['code'] == 'undefined') {
+                // 跳转
+                const appid = 'wxab138fa1fa76f66e';
+                const redirect_uri = encodeURIComponent(window.location.href);
+                window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
+            } else {
+                // 登陆
+                const code = this.$route.query.code;
+                this.login(code);
+            }
         },
         // 用于更新一些数据
         async login(code) {
-            const res = await this.$http.post('/auth/login', { code: code });
+            const res1 = await this.$http.post('/auth/openid', {
+                code: code
+              });
+              const res = await this.$http.post('/auth/login',
+                res1.data
+              );
             if (res.code >= 1) {
                 localStorage.jwt = res.jwt;
                 localStorage.userInfo = JSON.stringify(res.data);
                 this.userInfo = res.data;
+                this.$router.push(`/${localStorage.location}`)
             }
 
         },
-        async submit() {
-            this.$router.push('/')
-        }
+    
     },
     // 计算属性
     computed: {},
