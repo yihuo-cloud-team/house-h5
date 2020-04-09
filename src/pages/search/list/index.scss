@@ -1,6 +1,49 @@
 @import "@/styles/variable.scss";
+
 #list {
-    padding: $page-padding;
+
+  padding: 10px;
+  background-color: #fff;
+  height: 100vh;
+
+  .search {
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .search-body {
+      border-radius: 5px;
+      background-color: #f6f6f6;
+      padding: 5px;
+      display: flex;
+      flex: 1;
+
+      .choice {
+        font-weight: bold;
+        padding-right: 8px;
+        font-size: 12px;
+        color: rgba(119, 119, 119, 1);
+      }
+
+      .search-input {
+        flex: 1;
+        font-size: 12px;
+        margin-left: 10px;
+        border: none;
+        background-color: transparent;
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        border-right: 1px solid rgba(119, 119, 119, 1);
+      }
+    }
+  }
+
 }
 
 #list /deep/ {}

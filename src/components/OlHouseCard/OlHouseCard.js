@@ -1,32 +1,22 @@
 export default {
-    name: 'list',
-    layout: "sub",
+    name: 'OlHouseCard',
+    props: {
+        info:{
+            type:Object,
+            default:{}
+        }
+    },
     data() {
-        return {
-            form: {
-                title: '', //关键字
-                page_size: 10,
-                page: 1,
-                is_up: 1,
-                a: '', //区
-            },
-            list: [],
-        };
+        return {};
     },
     methods: {
         // 用于初始化一些数据
-        init() {
-            this.update();
-        },
+        init() { },
         // 用于更新一些数据
-        async update() {
-            // const res = await this.$http.post('', {});
-        },
+        update() { },
     },
     // 计算属性
-    computed: {
-        isApp
-    },
+    computed: {},
     // 包含 Vue 实例可用过滤器的哈希表。
     filters: {},
     // 在实例创建完成后被立即调用
@@ -35,7 +25,6 @@ export default {
     beforeMount() { },
     // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
     mounted() {
-        this.init();
         this.$nextTick(() => { });
     },
     // 数据更新时调用，发生在虚拟 DOM 打补丁之前。

@@ -1,0 +1,76 @@
+@import "@/styles/variable.scss";
+
+.ol-house-card {
+  .list {
+    padding: 10px 0px 10px 15px; 
+    display: flex;
+
+    .item-img {
+      margin-right: 8px;
+      border-radius: 4px;
+    }
+
+    .item-info {
+        flex: 1;
+      padding: 0 15px 0 5px;
+      width: calc(100% - 128px);
+      .title {
+        font-size: 14px;
+        line-height: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bold;
+
+      }
+
+      .info {
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        padding: 4px 0;
+        color: #ACAAAD;
+
+        .info-config {
+          flex: 1;
+        //   width: calc(100% - 105px);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+
+      }
+
+      .position {
+        color: #ACAAAD;
+        font-size: 12px;
+        // width: calc(100% - 100px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .label {
+        color: #ACAAAD;
+        padding: 4px 0;
+      }
+
+      .price {
+        color: #ACAAAD;
+        font-size: 12px;
+        display:flex;
+        align-items:center;
+        .span{
+            font-size: 17px;
+            line-height: 17px;
+            font-weight: bold;
+            padding: 5px 0;
+            color: #E37D6B;
+        }
+      }
+    }
+  }
+}
+
+.ol-house-card /deep/ {}
