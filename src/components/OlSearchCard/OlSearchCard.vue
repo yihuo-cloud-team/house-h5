@@ -1,6 +1,6 @@
 <template>
   <div class="ol-search-card">
-    <div class="list">
+    <div class="list" @click="$router.push(`/share/info?id=${info.id}`)">
       <div class="img-box">
         <van-swipe :show-indicators="false" @change="onChange" :loop="false">
           <van-swipe-item v-for="(image, index) in info.img_list" :key="index">

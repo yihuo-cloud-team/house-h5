@@ -46,7 +46,7 @@ export default {
                 localStorage.jwt = res.jwt;
                 localStorage.userInfo = JSON.stringify(res.data);
                 this.userInfo = res.data;
-                this.$router.push(`/${localStorage.location}`)
+                this.$router.push(`${localStorage.location}`)
             }
 
         },

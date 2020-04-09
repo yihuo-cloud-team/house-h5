@@ -1,6 +1,6 @@
 <template>
   <div class="ol-house-card">
-    <div class="list" >
+    <div class="list"  @click="$router.push(`/share/info?id=${info.id}`)">
       <div class="item-img">
         <van-image
           :radius="4"
