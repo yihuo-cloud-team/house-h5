@@ -11,12 +11,14 @@ import './Origin.js';
 
 
 import Vant from 'vant';
+import { Lazyload } from 'vant';
 import 'vant/lib/index.css';
 import '@/styles/vant.scss';
 
 import '@/styles/styles.scss';
 
 Vue.use(Vant);
+Vue.use(Lazyload);
 Vue.prototype.$http = Http;
 
 
