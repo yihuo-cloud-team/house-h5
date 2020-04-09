@@ -1,0 +1,7 @@
+@import "@/styles/variable.scss";
+#test {
+    background-color: white;
+    width: 100vw;
+}
+
+#test /deep/ {}
