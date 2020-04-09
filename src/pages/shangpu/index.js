@@ -1,7 +1,7 @@
-import AreaList from '../../../plugins/lib/area'
+import AreaList from '../../plugins/lib/area'
 export default {
-  name: 'list',
-  layout: "sub",
+  name: 'shangpu',
+  layout: 'sub',
   data() {
     return {
       form: {
@@ -10,7 +10,7 @@ export default {
         page: 1,
         is_up: 1,
         a: '310117', //区
-        house_type: 1, //酒店
+        house_type: 3 //商铺
       },
       list: [],
       finished: false,
@@ -19,7 +19,7 @@ export default {
       show: false,
       areaList: [],
       AreaArr: [],
-      Areaval:''
+      Areaval:""
     };
   },
   methods: {
@@ -27,6 +27,12 @@ export default {
     init() {
       this.update();
       this.areaList = AreaList;
+    },
+    search(){
+        this.form.page=1;
+        this.finished =false;
+        this.list = []
+        this.update()
     },
     // 用于更新一些数据
     async update() {
@@ -66,7 +72,7 @@ export default {
       this.district = e[2].name;
       this.form.a = e[2].code;
       this.list = []
-      this.form.page = 1;
+      this.form.page =1;
       this.finished = false;
       this.update();
       this.show = false;
@@ -74,17 +80,9 @@ export default {
     cancel() {
       this.show = false;
     },
-    search() {
-      this.form.page = 1;
-      this.finished = false;
-      this.list = []
-      this.update()
-    },
   },
   // 计算属性
-  computed: {
-
-  },
+  computed: {},
   // 包含 Vue 实例可用过滤器的哈希表。
   filters: {},
   // 在实例创建完成后被立即调用
