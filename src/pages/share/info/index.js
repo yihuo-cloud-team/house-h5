@@ -24,56 +24,15 @@ export default {
         },
         // 用于更新一些数据
         async update() {
-            // try {
-            //     const res = await this.$http.post('/paper/info', {
-            //         id: this.$route.query.id
-            //     });
-            //     if (res.code >= 0) {
-            //         this.info = res.data
-            //     }
-            // } catch (error) {
-
-            // }
-
-            const res = {
-                "code": 1,
-                "msg": "success",
-                "data": {
-                    "id": 230,
-                    "user_id": null,
-                    "title": "\u541b\u5730\u851a\u6797\u534a\u5c9b\u522b\u5885",
-                    "price": "4310000",
-                    "area": "189",
-                    "fill": "\u6bdb\u576f",
-                    "bedroom": 4,
-                    "room": 3,
-                    "wc": 4,
-                    "p": "310000",
-                    "c": "310100",
-                    "a": "310117",
-                    "towards": "\u5357",
-                    "number": "165",
-                    "type": "\u591a\u5c42\u4f4f\u5b85",
-                    "floor": "\u672a\u77e5",
-                    "year": "\u672a\u77e5",
-                    "house_state": "\u5df2\u5f00\u552e",
-                    "phone": "******",
-                    "name": "***",
-                    "remarks": "\u4e0a\u6d77-\u4e0a\u6d77\u5468\u8fb9\u541b\u5730\u851a\u6797\u534a\u5c9b\u522b\u5885\u73af\u5883\u597d\u7a7a\u6c14\u6e05\u65b0\u4ea4\u901a\u4fbf\u5229",
-                    "frequency": "",
-                    "img_list": ["\/public\/files\/20200115\/202001150506021984.jpg", "\/public\/files\/20200115\/202001150506064347.jpg", "\/public\/files\/20200115\/202001150506124317.jpg"],
-                    "is_top": 1,
-                    "state": 1,
-                    "origin_url": null,
-                    "add_time": "2020-01-15 17:06:17",
-                    "edit_time": "2020-01-15 17:14:26",
-                    "data_state": 1,
-                    "count": 20
+            try {
+                const res = await this.$http.post('house/info', {
+                    id: this.$route.query.id
+                });
+                if (res.code >= 0) {
+                    this.info = res.data
                 }
-            }
+            } catch (error) {
 
-            if (res.code >= 0) {
-                this.info = res.data
             }
             console.log(this.info)
 
