@@ -30,14 +30,28 @@
     <div id="info-box">
       <div id="info-box-title">房源信息</div>
       <van-row id="info-box-text">
+        <van-col span="12">编号<span class="text">{{info.id}}</span></van-col>
         <van-col span="12">朝向<span class="text">{{info.towards}}</span></van-col>
         <van-col span="12">户型<span class="text">{{info.bedroom}}室{{info.room}}厅{{info.wc}}卫</span></van-col>
         <van-col span="12">建面<span class="text">{{info.area}}m&sup2;</span></van-col>
-        <van-col span="12">装修风格<span class="text">{{info.fill}}</span></van-col>
-        <van-col span="12">总楼层<span class="text">{{info.floor}}</span></van-col>
-        <van-col span="12">楼层<span class="text">{{info.type}}</span></van-col>
+        <van-col span="12">风格<span class="text">{{info.fill}}</span></van-col>
+        <van-col span="12">楼层<span class="text">{{info.type}}/{{info.floor}}</span></van-col>
       </van-row>
     </div>
+
+    <div id="remarks-box">
+      <div id="remarks-box-title">房屋备注</div>
+      <div>{{info.remarks}}</div>
+      <div class="time-box">
+        <span>
+          发布：{{info.add_time}}
+        </span>
+        <span>
+          更新：{{info.edit_time}}
+        </span>
+      </div>
+    </div>
+
   </div>
 </template>
 <script src="./index.js"></script>
